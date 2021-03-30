@@ -1,0 +1,56 @@
+
+  
+  <div class="body">
+<br>
+<div class="row">
+    <div class="col-md-9">
+        <form class="example" action="action_page.php">
+            <input type="text" placeholder="Search By Brand" #searchValue (keyup)="searchData($event.target.value)" name="search">
+            <button type="button" (click)="searchData(searchValue.value)" ><i class="fa fa-search"></i></button>
+            &nbsp;&nbsp;
+            <button type="button" (click)="refresh(); searchValue.value=''" style="margin-left:1% ;"><i class="fa fa-refresh"></i></button> 
+
+          </form>
+
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-primary" type="button" (click)="sort()">Sort By Stars</button>
+    </div>
+</div>
+    
+
+      <br>
+
+      <mat-grid-list cols="3" rowHeight="1:1" *ngIf=loading>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>
+            <mat-spinner></mat-spinner>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
+
+
+
+  <div class="row" *ngIf="!loading">
+      <ng-template [ngIf]="restaurant.length < 1" class="text-center">
+          &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; No  Restaurant to display
+      </ng-template>
+    <div class="col-md-4" *ngFor="let hotel of restaurant;let i = index">
+      <div class="card animate__animated animate__tada" style="width: 18rem; margin: 2%;" >
+        <img [src]="Images[i%7].Image"  class="card-img-top img-thumbnail img-fluid"  alt="Noodeles Image" >
+        <div class="card-body">
+          <h5 class="card-title">{{hotel.Brand}}</h5>
+          <p class="card-text">{{hotel.Variety}}</p>
+          Stars : {{hotel.Stars!= 'NaN'?''+ hotel.Stars+'/5':'Not Available'}}&nbsp;&nbsp;
+          <button class="btn btn-primary" (click)="viewRestaurant(i)">View Restaurant</button>
+        </div>
+    </div>
+  </div>
+  
+  </div>
+  
+  
+  
+  
+    </div>
+    

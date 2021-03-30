@@ -1,0 +1,15 @@
+.card-title{
+    font-size: xx-large;
+    font-style: oblique;
+    font-weight: 600;
+    font-family: ui-monospace;
+}
+
+.card-body{
+    margin-left: 1%;
+}
+
+.headercol{
+    font-size: larger;
+    font-weight: 500;
+}

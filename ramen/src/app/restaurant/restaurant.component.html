@@ -1,0 +1,32 @@
+<mat-grid-list cols="3" rowHeight="1:1" *ngIf=loading>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+
+
+<div class="res" *ngIf="!loading">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="card" style="width: 18rem; margin: 2%;">
+                <img [src]="Images[id%7].Image" class="card-img-top img-thumbnail img-fluid" alt="Noodeles Image">
+
+            </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <h5 class="card-title animate__animated animate__flash text-center">{{restaurant.Brand}}</h5>
+                <p class="card-text"><span class="headercol">Variety</span> : {{restaurant.Variety}}</p>
+                <p class="card-text"><span class="headercol">Style</span>: {{restaurant.Style!= 'NaN'?restaurant.Style:'Not Available'}}</p>
+                <p class="card-text"><span class="headercol">Top Ten</span>:{{topTen}}</p>
+                <p class="card-text"><span class="headercol">Country</span> :{{restaurant.Country}}</p>
+                <span class="headercol">Stars</span> : {{restaurant.Stars!= 'NaN'?''+ restaurant.Stars+'/5':'Not Available'}}
+            </div>
+        </div>
+    </div>
+
+
+</div>
